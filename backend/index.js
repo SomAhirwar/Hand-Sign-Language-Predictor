@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const http = require("http");
 const dotenv = require("dotenv");
 
+const { processVideoToFrames } = require("./utilities/videoToFrames");
+
 dotenv.config({ path: "./config.env" });
 const app = express();
 const DB = process.env.DATABASE_URL.replace(
@@ -16,6 +18,7 @@ const server = http.createServer(app);
 app.use(express.json());
 
 app.get("/", (req, res) => {
+  processVideoToFrames("./videos/input", "./videos/output");
   res.send("Testing!!!!!!");
 });
 
