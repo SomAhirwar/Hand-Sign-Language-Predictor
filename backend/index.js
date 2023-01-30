@@ -18,7 +18,7 @@ const server = http.createServer(app);
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  processVideoToFrames("./videos/input", "./videos/output");
+  // processVideoToFrames("./videos/input", "./videos/output");
   res.send("Testing!!!!!!");
 });
 
